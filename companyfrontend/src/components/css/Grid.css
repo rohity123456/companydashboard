@@ -1,0 +1,11 @@
+.Mui-odd {
+  background-color: lightgray;
+}
+
+.MuiDataGrid-columnsContainer {
+  background-color: black;
+  color: white;
+}
+.MuiDataGrid-sortIcon {
+  color: white !important;
+}

@@ -1,0 +1,10 @@
+.MuiDataGrid-root {
+  max-width: 500px !important;
+  left: 50vw;
+  transform: translateX(-50%);
+}
+@media screen and (min-width: 700px) {
+  .MuiDataGrid-root {
+    max-width: 90vw !important;
+  }
+}
