@@ -51,20 +51,21 @@ const CreateEmployeeForm = ({
       console.log(errors);
       if (errors) return setError(errors);
       const { success, data } = await employeeAPI.createEmployee(formInput);
-      success &&
-        data
-          .then(({ status, employee }) => {
-            if (status.toLowerCase() === "success") {
-              dispatch({
-                type: actionTypes.SET_EMPLOYEELIST,
-                payload: [{ ...employee, id: employee._id }, ...Employees],
-              });
-              handleCloseOrOpen();
-            } else {
-              setError(data);
-            }
-          })
-          .catch((err) => console.log("FAIL ", err));
+      data
+        .then((data) => {
+          console.log(data);
+          const { status, employee } = data;
+          if (status.toLowerCase() === "success") {
+            dispatch({
+              type: actionTypes.SET_EMPLOYEELIST,
+              payload: [{ ...employee, id: employee._id }, ...Employees],
+            });
+            handleCloseOrOpen();
+          } else {
+            setError(data);
+          }
+        })
+        .catch((err) => console.log("FAIL ", err));
     } catch (error) {
       console.log(error);
       setError({ general: INTERNAL_SERVER_ERROR_MSG });

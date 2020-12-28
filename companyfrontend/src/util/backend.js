@@ -3,7 +3,7 @@ import HF from "../Helper/Helper";
 const { SUCCESS_CODE_LIST, AUTHORIZATION } = CONSTANTS;
 class Backend {
   constructor() {
-    this.API = "http://localhost:8080/api";
+    this.API = process.env.REACT_APP_API_URL || "";
   }
   async customFetch(URI_PATH, token) {
     try {
