@@ -1,9 +1,16 @@
 import { Button } from "@material-ui/core";
 import React from "react";
+import { useHistory } from "react-router-dom";
+import auth from "../util/AuthHandler";
 import "./css/CompanyInfo.css";
 function CompanyInfo({
   info: { email = "xyz@email.com", name = "XYZ", phoneNo = "9248293xxxx" },
 }) {
+  const signOut = () => {
+    auth.signOut();
+    history.push("/login");
+  };
+  const history = useHistory();
   return (
     <div className="companyInfo">
       <header>
@@ -17,6 +24,7 @@ function CompanyInfo({
             variant="contained"
             color="primary"
             size="small"
+            onClick={signOut}
             className="btn"
           >
             Sign Out

@@ -19,6 +19,10 @@ class AuthHandler {
     if (!this.#token) this.#token = HF.getItemFromLocalStorage("token");
     return this.#token;
   }
+  signOut() {
+    this.#token = null;
+    HF.removeItemsInLocalStorage(["token", "company"]);
+  }
 }
 const auth = new AuthHandler();
 export default auth;
